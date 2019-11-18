@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "vscode 插件 markdown-schedule-snippet"
+title:  "开篇说明 "
 categories: JavaScript
 tags: 效率 vscode markdown
-author: HyG
+author: runningshao
 ---
 
 * content
