@@ -48,4 +48,116 @@ docker swarm init
 *  安装docker compose
 
 *  安装portainer,开放服务器的远程docker api实现portianer集中管理
-*  在portainer中编排安装服务
+docker默认是没有开启Remote API的，需要我们手动开启:
+编辑/lib/systemd/system/docker.service文件：
+找到下面行，修改为：
+ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375
+重启服务：
+sudo systemctl daemon-reload
+sudo service docker restart
+portainer安装：
+```
+docker pull portainer/portainer
+docker volume create portainer_data
+docker run -d -p 9000:9000 --name portainer --restart always  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -v /public:/home/public --name prtainer portainer/portainer
+```
+*  在portainer的stack中编排安装服务
+```
+version: '3.1'
+services:
+  hhwebredis:
+    image: redis
+    container_name: hhredis
+    command: redis-server /etc/redis.conf
+    volumes:
+      - /home/redis/data:/data
+      - /home/redis/conf/redis.conf:/etc/redis.conf
+    ports:
+      - 6379:6379 
+    networks:
+      - my-network
+  #网站系统tomcat
+  hhwebsite:
+    image: runningshao/tomcat:latest
+    volumes:
+      - /home/website:/usr/local/tomcat/webapps
+    ports:
+      - 80:8080 
+    depends_on:
+      - hhwebredis
+    network_mode: "host"
+    environment:
+      CATALINA_OPTS: -Djava.security.egd=file:/dev/./urandom
+  #业务系统tomcat    
+  hhwebbiz:
+    image: runningshao/tomcat:latest
+    volumes:
+      - /home/biz/web:/usr/local/tomcat/webapps
+      - /home/biz/logs:/usr/local/tomcat/logs
+    ports:
+      - 83:8080 
+    depends_on:
+      - hhwebredis
+    networks:
+      - my-network
+    environment:
+      CATALINA_OPTS: -Djava.security.egd=file:/dev/./urandom
+  #edi业务处理    
+  hhedibiz:
+    image: runningshao/tomcat:latest
+    volumes:
+      - /home/biz/web:/usr/local/tomcat/webapps
+      - /home/biz/logs:/usr/local/tomcat/logs
+    ports:
+      - 8787:8080 
+    depends_on:
+      - hhwebredis
+    networks:
+      - my-network
+    environment:
+      CATALINA_OPTS: -Djava.security.egd=file:/dev/./urandom
+  #tomcat自动处理    
+  hhautobiz:
+    image: runningshao/tomcat:latest
+    volumes:
+      - /home/biz/web:/usr/local/tomcat/webapps
+      - /home/biz/logs:/usr/local/tomcat/logs
+    ports:
+      - 8989:8080 
+    depends_on:
+      - hhwebredis
+    networks:
+      - my-network
+    environment:
+      CATALINA_OPTS: -Djava.security.egd=file:/dev/./urandom     
+ #tomcat报表处理    
+  hhreport:
+    image: runningshao/tomcat:latest
+    volumes:
+      - /home/biz/web:/usr/local/tomcat/webapps
+      - /home/biz/logs:/usr/local/tomcat/logs
+    ports:
+      - 8989:8080 
+    depends_on:
+      - hhwebredis
+    networks:
+      - my-network
+    environment:
+      CATALINA_OPTS: -Djava.security.egd=file:/dev/./urandom  
+networks:
+  my-network:
+    driver: overlay
+```
+创建zookeeper,分别在三台服务器执行
+```
+version: '3.1'
+services:
+    zoo2:
+        image: zookeeper
+        restart: always
+        environment:
+        #不同服务器的zoo_my_id不同
+            ZOO_MY_ID: 1
+            ZOO_SERVERS: server.1=172.16.36.123:2888:3888 server.2=172.16.36.124:2888:3888 server.3=172.16.36.125:2888:3888
+        network_mode: host
+```
