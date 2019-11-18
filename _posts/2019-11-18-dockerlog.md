@@ -9,10 +9,14 @@ author: runningshao
 * content
 {:toc}
 
-## 在仓库设置页面中，输入仓库的名称，确认删除
+## </i><font size="3" color=red>应用服务器配置说明</font>
 
 ![image.png](https://i.loli.net/2019/11/18/TPv8f4shLyrRDot.png)
 
+<i class="fa fa-weixin">docker部署
 
-
-Enjoy it!
+<head> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
+</head> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
