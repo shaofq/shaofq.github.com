@@ -62,7 +62,6 @@ docker volume create portainer_data
 docker run -d -p 9000:9000 --name portainer --restart always  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -v /public:/home/public --name prtainer portainer/portainer
 ```
 *  在portainer的stack中编排安装服务
-
 ```
 version: '3.1'
 services:
