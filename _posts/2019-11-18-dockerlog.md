@@ -46,7 +46,11 @@ docker swarm init
 ```
 创建完swarm后，控制台显示对应worker添加命令，执行相应命令添加worker节点
 *  安装docker compose
-
+```
+sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+```
 *  安装portainer,开放服务器的远程docker api实现portianer集中管理
 docker默认是没有开启Remote API的，需要我们手动开启:
 编辑/lib/systemd/system/docker.service文件：
@@ -153,6 +157,9 @@ networks:
 
 创建zookeeper ,分别在三台服务器执行
 
+zookeeper安装，需要再三台服务器上分别编写 docker-zk-compose.yml文件
+文件内容：
+
 ```
 version: '3.1'
 services:
@@ -165,3 +172,8 @@ services:
             ZOO_SERVERS: server.1=172.16.36.123:2888:3888 server.2=172.16.36.124:2888:3888 server.3=172.16.36.125:2888:3888
         network_mode: host
 ```
+
+执行命令：docker-compose -f docker-tomcat-compose.yml up -d
+
+
+
