@@ -150,7 +150,7 @@ networks:
     driver: overlay
 ```
 
-创建zookeeper,分别在三台服务器执行
+创建zookeeper ,分别在三台服务器执行
 
 ```
 version: '3.1'
