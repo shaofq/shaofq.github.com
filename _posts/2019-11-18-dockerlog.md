@@ -9,7 +9,7 @@ author: runningshao
 * content
 {:toc}
 
-## </i><font size="3" color=red>应用服务器配置说明</font>
+## <font size="3" color=red>应用服务器配置说明</font>
 
 ![image.png](https://i.loli.net/2019/11/18/TPv8f4shLyrRDot.png)
 
