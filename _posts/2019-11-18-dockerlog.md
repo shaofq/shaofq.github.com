@@ -62,6 +62,7 @@ docker volume create portainer_data
 docker run -d -p 9000:9000 --name portainer --restart always  -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -v /public:/home/public --name prtainer portainer/portainer
 ```
 *  在portainer的stack中编排安装服务
+这里在编排的时候指定了overlay网络，实际上是把所有服务设置在同一个局域网内，实现跨主机跨容器访问，程序访问的配置和数据库配置指向的ip为容器的名称
 
 ```
 version: '3.1'
