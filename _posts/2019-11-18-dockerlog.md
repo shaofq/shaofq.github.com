@@ -9,14 +9,13 @@ author: runningshao
 * content
 {:toc}
 
-## <font size="3" color=red>应用服务器配置说明</font>
+# 应用服务器配置说明
 
 ![image.png](https://i.loli.net/2019/11/18/TPv8f4shLyrRDot.png)
 
-<i class="fa fa-weixin">docker部署
-
-<head> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script> 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/v4-shims.js"></script> 
-</head> 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+# docker部署说明
+*  安装docker
+*  初始化swarm，建立swarm集群
+*  安装docker compose
+*  安装portainer,开放服务器的远程docker api实现portianer集中管理
+*  在portainer中编排安装服务
