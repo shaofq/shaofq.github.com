@@ -26,7 +26,7 @@ app.winTrust.hide();
 ```
 
 ## grid单击事件
-*  grid的itemclick事件
+- grid的itemclick事件
 
 ```
 Wb.columnClick(view, e, "GETOWNER_NAM", function() {
