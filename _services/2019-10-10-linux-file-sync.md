@@ -1,13 +1,10 @@
 ---
-layout: post
 title:  "linux系统文件同步工具 lsyncd "
 categories: skill
 tags: 效率 vscode markdown
 author: runningshao
 ---
 
-* content
-{:toc}
 
 ### 安装lsyncd
 yum -y install lsyncd
