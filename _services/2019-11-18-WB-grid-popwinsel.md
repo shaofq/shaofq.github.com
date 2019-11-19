@@ -8,7 +8,7 @@ author: runningshao
 * content
 {:toc}
 
-# 弹出窗口（winsfhr）ok按钮事件
+## 弹出窗口（winsfhr）ok按钮事件
 
 ```
 var sel = app.gridTrust.getSelection()[0];
@@ -27,7 +27,7 @@ detail.set("CARGO_KIND_NAM", sel.data.CARGO_KIND_NAM);
 app.winTrust.hide();
 ```
 
-# grid单击事件
+## grid单击事件
 *  grid的itemclick事件
 
 ```

@@ -8,13 +8,13 @@ author: runningshao
 * content
 {:toc}
 
-# edi生成文件添加进filelist
+## edi生成文件添加进filelist
 
 ```
 fileList.add(new ByteArrayInputStream(HhUtil.byteArrayToStr(bean.getDataout())));
 ```
 
-# fileList文件输出并压缩
+## fileList文件输出并压缩
 
 ```
  OutputStream fos2 = new ByteArrayOutputStream();

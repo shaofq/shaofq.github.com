@@ -8,11 +8,11 @@ author: runningshao
 * content
 {:toc}
 
-# 应用服务器配置说明
+## 应用服务器配置说明
 
 ![image.png](https://i.loli.net/2019/11/18/TPv8f4shLyrRDot.png)
 
-# docker部署说明
+## docker部署说明
 *  安装docker，依次执行相应的命令
 ```
 sudo yum remove docker \
