@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "Wb表格弹出框选择数据给表格赋值"
 categories: WB
 tags: 效率 vscode markdown

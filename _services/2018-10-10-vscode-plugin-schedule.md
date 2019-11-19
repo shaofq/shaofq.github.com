@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "如何删除github仓库 "
 categories: skill
 tags: 效率 vscode markdown

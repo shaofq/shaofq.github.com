@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  "EDI报文多个文件生成并压缩"
 categories: EDI
 tags: 效率 vscode markdown
