@@ -5,8 +5,6 @@ tags: 效率 vscode markdown
 author: runningshao
 ---
 
-* content
-{:toc}
 
 ## 弹出窗口（winsfhr）ok按钮事件
 

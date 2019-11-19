@@ -5,8 +5,7 @@ tags: 效率 vscode markdown
 author: runningshao
 ---
 
-* content
-{:toc}
+
 
 在仓库设置页面中，输入仓库的名称，确认删除
 
