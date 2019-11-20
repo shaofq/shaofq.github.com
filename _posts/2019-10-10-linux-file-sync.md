@@ -15,13 +15,17 @@ yum -y install lsyncd
 ### 设置服务之间免密登录
 在Server A上执行
 
+```
 #ssh-keygen -t rsa
-#cat  ~/.ssh/id_rsa.pub | ssh root@10.10.200.173 "cat - >> ~/.ssh/authorized_keys"
+#cat  ~/.ssh/id_rsa.pub | ssh root@172.16.36.123 "cat - >> ~/.ssh/authorized_keys"
+```
 
 在Server B上执行
 
+```
 #ssh-keygen -t rsa
 #cat  ~/.ssh/id_rsa.pub | ssh root@10.10.200.172 "cat - >> ~/.ssh/authorized_keys"
+```
 
 ### 配置lsyncd 
 建立lsyncd 主配置文件，假设放置在/etc/lsyncd.conf:
