@@ -11,6 +11,7 @@ author: runningshao
 
 # linux监控工具安装(Netdata)
 
+```
 docker run -d --name=netdata \
   -p 19999:19999 \
   -v /etc/passwd:/host/etc/passwd:ro \
@@ -21,5 +22,6 @@ docker run -d --name=netdata \
   --cap-add SYS_PTRACE \
   --security-opt apparmor=unconfined \
   netdata/netdata
+```
 
 
